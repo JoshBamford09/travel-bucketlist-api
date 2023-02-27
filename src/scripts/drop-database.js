@@ -7,7 +7,8 @@ const loadEnv = () => {
   
     const envFile = '../.env.test'
     
-    require('dotenv').config(envFile);
+    const path = `${__dirname}/../${envFile}`;
+    require('dotenv').config({path: path});
 
     // require('dotenv').config({
     //   path: path.join(__dirname, envFile),
