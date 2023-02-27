@@ -10,15 +10,15 @@ const envName = process.argv.slice(2)[0]
 const loadEnv = (envName) => {
   const { NODE_ENV } = process.env
   if (NODE_ENV != 'production') {
-  
+
     const envFile = envName === 'test' ? '../.env.test' : '../.env'
     
-    require('dotenv').config({
-      path: path.join(__dirname, envFile),
-    })
+    const path = `${__dirname}/../${envFile}`;
+    require('dotenv').config({path: path});
   
     // capture the name of the database so we can create it
     const databaseName = process.env.PGDATABASE
+    console.log(`The database name is ${databaseName}`)
   
     // remove the name of the database from the environment, so pg doesn't try to connect to a db which doesn't exist yet
     delete process.env.PGDATABASE

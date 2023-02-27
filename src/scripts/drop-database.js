@@ -7,9 +7,11 @@ const loadEnv = () => {
   
     const envFile = '../.env.test'
     
-    require('dotenv').config({
-      path: path.join(__dirname, envFile),
-    })
+    require('dotenv').config(envFile);
+
+    // require('dotenv').config({
+    //   path: path.join(__dirname, envFile),
+    // })
   
     const databaseName = process.env.PGDATABASE
   
