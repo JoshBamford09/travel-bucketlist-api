@@ -1,0 +1,14 @@
+{
+  "name": "travel-bucketlist-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Jamie Catto",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.35.0"
+  }
+}
