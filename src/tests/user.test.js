@@ -23,7 +23,7 @@ describe('/users', () => {
         });
       });
 
-    describe('with records in the databvase', () => {
+    describe('with records in the database', () => {
       let users;
 
       beforeEach(async () => {
@@ -106,6 +106,6 @@ describe('/users', () => {
           expect(response.status).to.equal(404);
           expect(response.body.message).to.equal('user 9999999 does not exist.');
         });
-      })
+      });
     });
 });
