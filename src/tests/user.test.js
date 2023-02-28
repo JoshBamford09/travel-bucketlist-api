@@ -16,9 +16,11 @@ describe('/users', () => {
             const response = await request(app).post('/users').send({
               username: 'JamieCatto',
               email: 'jamietcatto@gmail.com',
+              password: 'password123'
             });
             
             expect(response.status).to.equal(201);
+            expect(response.body.password).to.equal(undefined);
           });
         });
       });
@@ -28,9 +30,12 @@ describe('/users', () => {
 
       beforeEach(async () => {
         users = await Promise.all([
-          User.create({ username: "JamieCatto", email: "jamietcatto@gmail.com" }),
-          User.create({ username: "JoshBamford", email: "joshbam@gmail.com" }),
-          User.create({ username: "TestUser123", email: "testuser@gmail.com" }),
+          User.create({ username: "JamieCatto", email: "jamietcatto@gmail.com",
+          password: 'password123' }),
+          User.create({ username: "JoshBamford", email: "joshbam@gmail.com",
+          password: 'password123' }),
+          User.create({ username: "TestUser123", email: "testuser@gmail.com",
+          password: 'password123' }),
         ]);
       });
 
