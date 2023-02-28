@@ -16,9 +16,13 @@ describe('/destinations', () => {
             const response = await request(app).post('/destinations').send({
               name: 'Bali',
               description: 'An island off Indonesia.',
+              country: 'Indonensia'
             });
             
             expect(response.status).to.equal(201);
+            expect(response.body.name).to.equal('Bali');
+            expect(response.body.description).to.equal('An island off Indonesia.');
+            expect(response.body.country).to.equal('Indonensia');
           });
         });
       });

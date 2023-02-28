@@ -19,6 +19,17 @@ const setupDatabase = () => {
     const List = ListModel(connection, Sequelize);
     const Favourite = FavouriteModel(connection);
 
+    // User.hasMany(List);
+    // User.hasMany(Favourite);
+    // List.belongsTo(User);
+    // List.belongsToMany(Favourite, {through: 'ListFavourites'});
+    // List.belongsToMany(Destination, {through: 'ListDestinations'});
+    // Destination.belongsToMany(List, {through: 'ListDestinations'});
+    // Destination.hasOne(Favourite);
+    // Favourite.belongsTo(User);
+    // Favourite.belongsToMany(List, {through: 'ListFavourites'});
+    // Favourite.belongsTo(Destination);
+
     connection.sync({alter: true});
 
     return { User, Destination, List, Favourite };

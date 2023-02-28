@@ -1,7 +1,7 @@
 const { List } = require('../models');
 const helper = require('./helper');
 
-exports.addList = (req, res) {
+exports.addList = (req, res) => {
     helper.addItem(res, req.body, List);
 };
 
