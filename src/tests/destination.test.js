@@ -28,9 +28,18 @@ describe('/destinations', () => {
 
       beforeEach(async () => {
         destinations = await Promise.all([
-          Destination.create({ name: "Bali", description: "An island off Indonesia." }),
-          Destination.create({ name: "Manchester", description: "A city in the North of England" }),
-          Destination.create({ name: "Marbella", description: "A beach town in the South of Spain." }),
+          Destination.create({ 
+            name: "Bali", 
+            description: "An island off Indonesia.",
+            country: "Indonesia" }),
+          Destination.create({ 
+            name: "Manchester", 
+            description: "A city in the North of England",
+            country: "England" }),
+          Destination.create({ 
+            name: "Marbella", 
+            description: "A beach town in the South of Spain.",
+            country: "Spain" }),
         ]);
       });
 
@@ -45,6 +54,7 @@ describe('/destinations', () => {
 
             expect(destination.name).to.equal(expected.name);
             expect(destination.description).to.equal(expected.description);
+            expect(destination.country).to.equal(expected.country);
           });
         });
       });
@@ -57,6 +67,7 @@ describe('/destinations', () => {
           expect(response.status).to.equal(200);
           expect(response.body.name).to.equal(destination.name);
           expect(response.body.description).to.equal(destination.description);
+          expect(response.body.country).to.equal(destination.country);
         });
 
         it('returns a 404 if their is no destination with that id', async () => {
@@ -77,6 +88,7 @@ describe('/destinations', () => {
           expect(response.status).to.equal(200);
           expect(response.body.id).to.equal(destination.id);
           expect(response.body.description).to.equal(destination.description);
+          expect(response.body.country).to.equal(destination.country);
           expect(response.body.name).to.equal('Pho Kang');
         });
 
