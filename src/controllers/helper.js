@@ -1,4 +1,4 @@
-const { User, Destination, List } = require('../models');
+const { User, Destination, List, Favourite } = require('../models');
 
 const removePassword = (object) => {
     if(object.hasOwnProperty('password')) {
@@ -16,6 +16,9 @@ const getModelAsString = (model) => {
     }
     if (model === List) {
         return 'list';
+    }
+    if (model === Favourite) {
+        return 'favourite';
     }
 }
 

@@ -2,6 +2,7 @@ const Sequelize = require('sequelize');
 const UserModel = require('./user');
 const DestinationModel = require('./destination');
 const ListModel = require('./list');
+const FavouriteModel = require('./favourite');
 
 const { PGUSER, PGHOST, PGPASSWORD, PGDATABASE, PGPORT } = process.env;
 
@@ -16,10 +17,11 @@ const setupDatabase = () => {
     const User = UserModel(connection, Sequelize);
     const Destination = DestinationModel(connection, Sequelize);
     const List = ListModel(connection, Sequelize);
+    const Favourite = FavouriteModel(connection);
 
     connection.sync({alter: true});
 
-    return { User, Destination, List };
+    return { User, Destination, List, Favourite };
 }
 
 module.exports = setupDatabase();
