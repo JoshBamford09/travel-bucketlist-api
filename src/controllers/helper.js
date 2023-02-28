@@ -42,7 +42,7 @@ exports.getItem = async (res, itemId, Model) => {
     }
 
     const itemWithoutPassword = removePassword(item.dataValues);
-    res.status(200).json(item);
+    res.status(200).json(itemWithoutPassword);
 }
 
 exports.updateItem = async (res, itemId, updateData, Model) => {
@@ -54,7 +54,7 @@ exports.updateItem = async (res, itemId, updateData, Model) => {
     }
 
     const itemWithoutPassword = removePassword(updatedItem.dataValues);
-    res.status(200).json(updatedItem);
+    res.status(200).json(itemWithoutPassword);
 }
 
 exports.deleteItem = async (res, itemId, Model) => {
